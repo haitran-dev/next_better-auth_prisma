@@ -1,12 +1,12 @@
-"use client";
-
 import { createAuthClient } from "better-auth/react";
+export const authClient = createAuthClient({
+  baseURL: "http://localhost:3000", // the base url of your auth server
+});
 
-// Create a client for better-auth
-export const { useSession, signIn, signOut, signUp } = createAuthClient();
+export const signInGithub = async () => {
+  const data = await authClient.signIn.social({
+    provider: "github",
+  });
 
-// The client will handle things like:
-// - authClient.signIn.email({ email, password })
-// - authClient.signUp.email({ email, password, name })
-// - authClient.signOut()
-// - authClient.useSession()
+  return data;
+};

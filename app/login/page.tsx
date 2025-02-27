@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Mail } from "lucide-react";
+import { signInGithub } from "@/lib/auth-client";
 
 export default function LoginPage() {
   const searchParams = useSearchParams();
@@ -35,7 +36,11 @@ export default function LoginPage() {
             <Button variant="outline" className="flex items-center gap-2">
               Google
             </Button>
-            <Button variant="outline" className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              className="flex items-center gap-2"
+              onClick={signInGithub}
+            >
               GitHub
             </Button>
           </div>
